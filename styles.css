@@ -13,15 +13,16 @@ body {
 
 .card-container {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr .5fr 1fr;
-    grid-template-areas: 
-                "top-card"
-                "middle-card"
-                "bottom-card";
-    margin: 3rem 1.2rem;
+    grid-template-columns: 10% repeat(auto-fit, minmax(315px, 375px)) 10%;
+    /* grid-template-rows: 1fr .5fr 1fr; */
+    grid-template-areas:
+                "... top-card     ..."
+                "... middle-card  ..."
+                "... bottom-card  ...";
+    margin: 3.7rem 0;
     justify-content: center;
     align-content: center;
+    height: 100vh;
 }
 /************************CARD STYLES ***********************/
 .join-card {
@@ -84,7 +85,7 @@ body {
     color: #ffffff;
     background-color: hsl(71, 73%, 54%);
     padding: .75rem .5rem;
-    margin: 2rem .5rem;
+    margin: 2rem 0;
     border-radius: 5px;
     box-shadow: 3px 2px 15px 0px hsl(218, 22%, 67%);
 }
@@ -95,20 +96,103 @@ body {
     padding: 1.5rem .9rem 0;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
-    display: grid;
 }
 
 .why-title {
     color: #ffffff;
     margin-bottom: 0rem;
-    align-self: center;
 }
 
 .why-list {
     list-style-type: none;
     line-height: 1.5;
     color: rgba(229, 239, 245, 0.842);
+    margin: 1.5rem 0;
 }
 /************************FOOTER STYLES ***********************/
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+.attribution { 
+    font-size: 11px; text-align: center; 
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+/************************MEDIA QUERIES ***********************/
+@media (min-width: 1400px) {
+    .card-container {
+        display: grid;
+        grid-template-columns: .5fr .65fr .65fr .5fr;
+        /* grid-template-rows: .5fr .75fr .65fr .5fr; */
+        grid-template-areas: 
+                    "...   ...    ...      ..."
+                    "... top-card top-card ..."
+                    "... middle-card bottom-card ..."
+                    "...  ...         ...        ...";
+        justify-content: center;
+    }
+
+    .join-card, .monthly-card,
+    .why-card {
+        padding: 3rem;
+    }
+
+    .join-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .subtitle {
+        margin-bottom: .5rem;
+        font-size: 1.4rem;
+    }
+
+    .description span {
+        display: block;
+    }
+
+    .description {
+        font-size: 1.2rem;
+    }
+
+    .monthly-card {
+        /* justify-content: center; */
+        border-bottom-left-radius: 7px;
+    }
+
+    .month-title,
+    .why-title {
+        font-size: 1.35rem;
+        font-weight: 300;
+    }
+
+    .join-title {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+    
+    .price {
+        margin: 1rem 0;
+    }
+
+    .perks {
+        font-size: 1.25rem;
+        font-weight: 100;
+    }
+
+    .sign-btn {
+        width: 95%;
+        justify-self: start;
+        align-self: end;
+        margin: 2rem 0 0;
+        padding: 1.2rem 0;
+    }
+
+    .why-card {
+        border-bottom-left-radius: 0;
+    }
+
+    .why-list {
+        font-size: 1.1rem;
+    }
+}
